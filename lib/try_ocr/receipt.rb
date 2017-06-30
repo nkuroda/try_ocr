@@ -27,7 +27,7 @@ module TryOcr
 
     # 単語の配列
     def words
-      @words = image.text&.words
+      @words ||= image.text&.words
     end
   end
 end
