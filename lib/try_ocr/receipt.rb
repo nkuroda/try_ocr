@@ -29,5 +29,16 @@ module TryOcr
     def words
       @words ||= image.text&.words
     end
+
+    # 金額ラベルの単語候補
+    def amount_label_word_candidates
+      %w(合計)
+    end
+
+    # 金額ラベルの単語
+    def amount_label_word
+      # 金額合計は後にあることが多いので後ろ優先で探索
+      words.reverse.find { |word| amount_label_word_candidates.include?(word.text) }
+    end
   end
 end
