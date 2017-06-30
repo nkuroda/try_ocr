@@ -8,6 +8,7 @@ module TryOcr
 
     # OCRで読み取った全文を返す
     def text
+      image.to_s.strip
     end
 
     # レシートの日付を返す。認識できなければnilを返す
