@@ -17,6 +17,9 @@ module TryOcr
 
     # レシートの金額を返す。認識できなければnilを返す
     def amount
+      return if amount_word.nil?
+
+      amount_word.text.to_i
     end
 
     # レシートの電話番号を返す。認識できなければnilを返す
