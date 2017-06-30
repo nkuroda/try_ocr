@@ -7,7 +7,7 @@ module TryOcr
     end
 
     # OCRで読み取った全文を返す
-    def text
+    def full_text
       image.text.words.map(&:text).join.strip
     end
 

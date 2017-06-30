@@ -3,8 +3,8 @@ require 'spec_helper'
 describe TryOcr::Receipt do
   let(:receipt) { TryOcr::Receipt.new(source) }
 
-  describe '#text' do
-    subject { receipt.text }
+  describe '#full_text' do
+    subject { receipt.full_text }
 
     context 'when first image' do
       let(:source) { "#{RSPEC_ROOT}/fixtures/files/first_image.png" }
