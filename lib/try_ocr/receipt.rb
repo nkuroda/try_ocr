@@ -3,12 +3,12 @@ module TryOcr
     attr_reader :image
 
     def initialize(source)
-      @image = RTesseract.new(source, lang: 'eng+jpn')
+      @image = Google::Cloud::Vision.new.image(source)
     end
 
     # OCRで読み取った全文を返す
     def text
-      image.to_s.strip
+      image.text.words.map(&:text).join.strip
     end
 
     # レシートの日付を返す。認識できなければnilを返す
