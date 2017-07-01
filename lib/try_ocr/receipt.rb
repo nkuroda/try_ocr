@@ -11,10 +11,6 @@ module TryOcr
       words.map(&:text).join.strip
     end
 
-    # レシートの日付を返す。認識できなければnilを返す
-    def date
-    end
-
     # レシートの金額を返す。認識できなければnilを返す
     def amount
       return if amount_word.nil?
@@ -22,8 +18,14 @@ module TryOcr
       amount_word.text.to_i
     end
 
+    # レシートの日付を返す。認識できなければnilを返す
+    def date
+      raise NotImplementedError.new("You must implement #{self.class}##{__method__}")
+    end
+
     # レシートの電話番号を返す。認識できなければnilを返す
     def tel
+      raise NotImplementedError.new("You must implement #{self.class}##{__method__}")
     end
 
     private
